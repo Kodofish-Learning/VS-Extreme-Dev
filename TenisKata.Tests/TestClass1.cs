@@ -23,15 +23,22 @@ namespace TenisKata.Tests
         [Test]
         public void Fifteen_Love()
         {
-            tennisGame.FirstPlayerScoreTime();
+            GivenFirstPlayerScore(1);
             ShouldBe("Fifteen Love");
+        }
+
+        private void GivenFirstPlayerScore(int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                tennisGame.FirstPlayerScoreTime();
+            }
         }
 
         [Test]
         public void Thirdty_Love()
         {
-            tennisGame.FirstPlayerScoreTime();
-            tennisGame.FirstPlayerScoreTime();
+            GivenFirstPlayerScore(2);
             ShouldBe("Thirdty Love");
         }
 
