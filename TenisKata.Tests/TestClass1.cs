@@ -17,16 +17,14 @@ namespace TenisKata.Tests
         [Test]
         public void Love_All()
         {
-            string score = tennisGame.Score();
-            score.ShouldEqual("Love All");
+            ShouldBe("Love All");
         }
 
         [Test]
         public void Fifteen_Love()
         {
             tennisGame.FirstPlayerScoreTime();
-            string score = tennisGame.Score();
-            score.ShouldEqual("Fifteen Love");
+            ShouldBe("Fifteen Love");
         }
 
         [Test]
@@ -34,8 +32,13 @@ namespace TenisKata.Tests
         {
             tennisGame.FirstPlayerScoreTime();
             tennisGame.FirstPlayerScoreTime();
+            ShouldBe("Thirdty Love");
+        }
+
+        private void ShouldBe(string expected)
+        {
             string score = tennisGame.Score();
-            score.ShouldEqual("Thirdty Love");
+            score.ShouldEqual(expected);
         }
     }
 }
