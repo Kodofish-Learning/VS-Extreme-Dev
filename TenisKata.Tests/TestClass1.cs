@@ -28,5 +28,14 @@ namespace TenisKata.Tests
             string score = tennisGame.Score();
             score.ShouldEqual("Fifteen Love");
         }
+
+        [Test]
+        public void Thirdty_Love()
+        {
+            tennisGame.FirstPlayerScoreTime();
+            tennisGame.FirstPlayerScoreTime();
+            string score = tennisGame.Score();
+            score.ShouldEqual("Thirdty Lova");
+        }
     }
 }
