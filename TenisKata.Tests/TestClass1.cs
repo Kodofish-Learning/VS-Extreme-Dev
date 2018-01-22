@@ -35,7 +35,7 @@ namespace TenisKata.Tests
             tennisGame.FirstPlayerScoreTime();
             tennisGame.FirstPlayerScoreTime();
             string score = tennisGame.Score();
-            score.ShouldEqual("Thirdty Lova");
+            score.ShouldEqual("Thirdty Love");
         }
     }
 }
