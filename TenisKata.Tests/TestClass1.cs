@@ -1,9 +1,14 @@
 ﻿using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TenisKata.Tests
 {
     [TestFixture]
-    public class Partices1tests
+    public class TestClass1
     {
         [Test]
         public void TestMethod()
