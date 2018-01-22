@@ -6,20 +6,21 @@ namespace TenisKata.Tests
     [TestFixture]
     public class TestClass1
     {
+        private TennisGame tennisGame = new TennisGame();
+
         [Test]
         public void Love_All()
         {
-            var tennisGame = new TennisGame();
             string score = tennisGame.Score();
             score.ShouldEqual("Love All");
         }
-    }
 
-    public class TennisGame
-    {
-        public string Score()
+        [Test]
+        public void Fifteen_Love()
         {
-            return "Love All";
+            tennisGame.FirstPlayerScoreTime();
+            string score = tennisGame.Score();
+            score.ShouldEqual("Fifteen Love");
         }
     }
 }
