@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Should;
 
 namespace TenisKata.Tests
 {
@@ -6,10 +7,19 @@ namespace TenisKata.Tests
     public class TestClass1
     {
         [Test]
-        public void TestMethod()
+        public void Love_All()
         {
-            // TODO: Add your test code here
-            Assert.Pass("Your first passing test");
+            var tennisGame = new TennisGame();
+            string score = tennisGame.Score();
+            score.ShouldEqual("Love All");
+        }
+    }
+
+    public class TennisGame
+    {
+        public string Score()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
