@@ -6,7 +6,13 @@ namespace TenisKata.Tests
     [TestFixture]
     public class TestClass1
     {
-        private TennisGame tennisGame = new TennisGame();
+        private TennisGame tennisGame;
+
+        [SetUp]
+        public void Setup()
+        {
+            tennisGame = new TennisGame();
+        }
 
         [Test]
         public void Love_All()
