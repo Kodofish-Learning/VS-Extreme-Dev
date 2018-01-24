@@ -88,6 +88,15 @@ namespace TenisKata.Tests
             ShouldBe("Deuce");
         }
 
+        [Test]
+        public void Joey_Adv()
+        {
+            GivenSecondPlayerScore(3);
+
+            GivenFirstPlayerScore(4);
+            ShouldBe("Joey Adv");
+        }
+
         private void GivenSecondPlayerScore(int times)
         {
             for (int i = 0; i < times; i++)
