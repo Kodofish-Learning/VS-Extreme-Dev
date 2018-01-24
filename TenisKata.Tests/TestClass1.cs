@@ -76,7 +76,7 @@ namespace TenisKata.Tests
             GivenSecondPlayerScore(1);
 
             GivenFirstPlayerScore(1);
-            ShouldBe("Love Forty");
+            ShouldBe("Fifteen All");
         }
 
         private void GivenSecondPlayerScore(int times)
