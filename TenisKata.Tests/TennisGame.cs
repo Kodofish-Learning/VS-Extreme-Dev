@@ -21,6 +21,11 @@ namespace TenisKata.Tests
             {
                 return "Love Fifteen";
             }
+
+            if (_secondPlayerScore == 2)
+            {
+                return "Love Thirdty";
+            }
             if (_firstPlayerScore > 0)
             {
                 return _score[_firstPlayerScore] + " Love";
