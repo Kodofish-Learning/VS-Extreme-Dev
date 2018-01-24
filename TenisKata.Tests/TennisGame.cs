@@ -17,6 +17,10 @@ namespace TenisKata.Tests
 
         public string Score()
         {
+            if (_secondPlayerScore == 1)
+            {
+                return "Love Fifteen";
+            }
             if (_firstPlayerScore > 0)
             {
                 return _score[_firstPlayerScore] + " Love";
