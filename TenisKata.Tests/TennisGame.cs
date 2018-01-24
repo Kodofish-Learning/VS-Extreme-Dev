@@ -21,6 +21,10 @@ namespace TenisKata.Tests
             {
                 if (_firstPlayerScore > 0)
                 {
+                    if (_firstPlayerScore == 3)
+                    {
+                        return "Deuce";
+                    }
                     return _score[_firstPlayerScore] + " All";
                 }
             }
