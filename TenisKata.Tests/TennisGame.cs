@@ -30,6 +30,10 @@ namespace TenisKata.Tests
             {
                 if (_firstPlayerScore > 0 || _secondPlayerScore > 0)
                 {
+                    if (_firstPlayerScore - _secondPlayerScore == 1 && _secondPlayerScore >= 3)
+                    {
+                        return "Joey Adv";
+                    }
                     return _score[_firstPlayerScore] + " " + _score[_secondPlayerScore];
                 }
             }
