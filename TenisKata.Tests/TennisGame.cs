@@ -1,18 +1,22 @@
-﻿namespace TenisKata.Tests
+﻿using System.Collections.Generic;
+
+namespace TenisKata.Tests
 {
     public class TennisGame
     {
         private int _firstPlayerScore;
 
+        private Dictionary<int, string> score = new Dictionary<int, string>()
+        {
+            {2, "Thirdty" },
+            {1, "Fifteen" }
+        };
+
         public string Score()
         {
-            if (_firstPlayerScore == 2)
+            if (_firstPlayerScore > 0)
             {
-                return "Thirdty Love";
-            }
-            if (_firstPlayerScore == 1)
-            {
-                return "Fifteen Love";
+                return score[_firstPlayerScore] + " Love";
             }
             return "Love All";
         }
