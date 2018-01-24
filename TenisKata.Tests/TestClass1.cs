@@ -52,8 +52,16 @@ namespace TenisKata.Tests
         [Test]
         public void Love_Fifteen()
         {
-            GivenFirstPlayerScore(1);
+            GivenSecondPlayerScore(1);
             ShouldBe("Love Fifteen");
+        }
+
+        private void GivenSecondPlayerScore(int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                tennisGame.SecondPlayerScoreTime();
+            }
         }
 
         private void ShouldBe(string expected)

@@ -13,6 +13,8 @@ namespace TenisKata.Tests
             {3, "Forty" }
         };
 
+        private int _secondPlayerScore;
+
         public string Score()
         {
             if (_firstPlayerScore > 0)
@@ -25,6 +27,11 @@ namespace TenisKata.Tests
         public void FirstPlayerScoreTime()
         {
             _firstPlayerScore++;
+        }
+
+        public void SecondPlayerScoreTime()
+        {
+            _secondPlayerScore++;
         }
     }
 }
