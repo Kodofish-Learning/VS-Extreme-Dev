@@ -56,6 +56,13 @@ namespace TenisKata.Tests
             ShouldBe("Love Fifteen");
         }
 
+        [Test]
+        public void Love_Thirdty()
+        {
+            GivenSecondPlayerScore(2);
+            ShouldBe("Love Thirdty");
+        }
+
         private void GivenSecondPlayerScore(int times)
         {
             for (int i = 0; i < times; i++)
