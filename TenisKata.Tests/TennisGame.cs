@@ -6,7 +6,7 @@ namespace TenisKata.Tests
     {
         private int _firstPlayerScore;
 
-        private Dictionary<int, string> score = new Dictionary<int, string>()
+        private readonly Dictionary<int, string> _score = new Dictionary<int, string>()
         {
             {2, "Thirdty" },
             {1, "Fifteen" }
@@ -16,7 +16,7 @@ namespace TenisKata.Tests
         {
             if (_firstPlayerScore > 0)
             {
-                return score[_firstPlayerScore] + " Love";
+                return _score[_firstPlayerScore] + " Love";
             }
             return "Love All";
         }
