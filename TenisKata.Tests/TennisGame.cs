@@ -10,33 +10,41 @@ namespace TenisKata.Tests
         {
             {2, "Thirdty" },
             {1, "Fifteen" },
-            {3, "Forty" }
+            {3, "Forty" },
+            {0, "Love" }
         };
 
         private int _secondPlayerScore;
 
         public string Score()
         {
-            if (_firstPlayerScore == _secondPlayerScore)
+            if (IsSameScore())
             {
-                if (_firstPlayerScore > 0)
+                if (IsDeuce())
                 {
-                    if (_firstPlayerScore == 3)
-                    {
-                        return "Deuce";
-                    }
-                    return _score[_firstPlayerScore] + " All";
+                    return "Deuce";
+                }
+                return _score[_firstPlayerScore] + " All";
+            }
+            else
+            {
+                if (_firstPlayerScore > 0 || _secondPlayerScore > 0)
+                {
+                    return _score[_firstPlayerScore] + " " + _score[_secondPlayerScore];
                 }
             }
-            if (_secondPlayerScore > 0)
-            {
-                return "Love " + _score[_secondPlayerScore];
-            }
-            if (_firstPlayerScore > 0)
-            {
-                return _score[_firstPlayerScore] + " Love";
-            }
-            return "Love All";
+
+            return _score[_firstPlayerScore] + " All";
+        }
+
+        private bool IsDeuce()
+        {
+            return _firstPlayerScore >= 3;
+        }
+
+        private bool IsSameScore()
+        {
+            return _firstPlayerScore == _secondPlayerScore && _firstPlayerScore > 0;
         }
 
         public void FirstPlayerScoreTime()
