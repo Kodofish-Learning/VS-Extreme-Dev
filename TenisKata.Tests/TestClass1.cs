@@ -49,6 +49,13 @@ namespace TenisKata.Tests
             ShouldBe("Forty Love");
         }
 
+        [Test]
+        public void Love_Fifteen()
+        {
+            GivenFirstPlayerScore(1);
+            ShouldBe("Love Fifteen");
+        }
+
         private void ShouldBe(string expected)
         {
             string score = tennisGame.Score();
