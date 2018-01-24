@@ -9,7 +9,8 @@ namespace TenisKata.Tests
         private readonly Dictionary<int, string> _score = new Dictionary<int, string>()
         {
             {2, "Thirdty" },
-            {1, "Fifteen" }
+            {1, "Fifteen" },
+            {3, "Forty" }
         };
 
         public string Score()
