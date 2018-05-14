@@ -16,7 +16,7 @@ namespace TenisKata.Tests
         };
         private int _secondPlayerScore;
 
-        private string _firstPlayerName;
+        private readonly string _firstPlayerName;
         private readonly string _secondPlayername;
 
         public TennisGame(string firstPlayerName, string secondPlayername)
@@ -68,11 +68,6 @@ namespace TenisKata.Tests
         private bool IsDeuce()
         {
             return _firstPlayerScore >= 3;
-        }
-
-        private bool IsSameScore()
-        {
-            return _firstPlayerScore == _secondPlayerScore && _firstPlayerScore > 0;
         }
 
         public void FirstPlayerScoreTime()
