@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TenisKata.Tests
 {
@@ -13,32 +14,55 @@ namespace TenisKata.Tests
             {3, "Forty" },
             {0, "Love" }
         };
-
         private int _secondPlayerScore;
+
+        private string _firstPlayerName;
+        private readonly string _secondPlayername;
+
+        public TennisGame(string firstPlayerName, string secondPlayername)
+        {
+            _firstPlayerName = firstPlayerName;
+            _secondPlayername = secondPlayername;
+        }
 
         public string Score()
         {
-            if (IsSameScore())
-            {
-                if (IsDeuce())
-                {
-                    return "Deuce";
-                }
-                return _score[_firstPlayerScore] + " All";
-            }
-            else
-            {
-                if (_firstPlayerScore > 0 || _secondPlayerScore > 0)
-                {
-                    if (_firstPlayerScore - _secondPlayerScore == 1 && _secondPlayerScore >= 3)
-                    {
-                        return "Joey Adv";
-                    }
-                    return _score[_firstPlayerScore] + " " + _score[_secondPlayerScore];
-                }
-            }
+            return IsScoreDifferent()
+                ? (IsReadForWin() ? AdvState() : NormalScore())
+                : (IsDeuce() ? "Deuce" : _score[_firstPlayerScore] + " All");
+        }
 
-            return _score[_firstPlayerScore] + " All";
+        private bool IsScoreDifferent()
+        {
+            return _firstPlayerScore != _secondPlayerScore;
+        }
+
+        private string NormalScore()
+        {
+            return _score[_firstPlayerScore] + " " + _score[_secondPlayerScore];
+        }
+
+        private bool IsReadForWin()
+        {
+            return _firstPlayerScore > 3 ||_secondPlayerScore > 3;
+        }
+
+        private string AdvState()
+        {
+            return AdvPlayer() + (IsAdv() ? " Adv" : " Win");
+        }
+
+        private bool IsAdv()
+        {
+            return Math.Abs(_firstPlayerScore-_secondPlayerScore) == 1;
+        }
+
+        private string AdvPlayer()
+        {
+            var advPlayer = (_firstPlayerScore > _secondPlayerScore)
+                ? _firstPlayerName
+                : _secondPlayername;
+            return advPlayer;
         }
 
         private bool IsDeuce()

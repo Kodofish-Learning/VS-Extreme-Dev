@@ -6,12 +6,12 @@ namespace TenisKata.Tests
     [TestFixture]
     public class TestClass1
     {
-        private TennisGame tennisGame;
+        private TennisGame _tennisGame;
 
         [SetUp]
         public void Setup()
         {
-            tennisGame = new TennisGame();
+            _tennisGame = new TennisGame("Joey", "Fish");
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace TenisKata.Tests
         {
             for (int i = 0; i < times; i++)
             {
-                tennisGame.FirstPlayerScoreTime();
+                _tennisGame.FirstPlayerScoreTime();
             }
         }
 
@@ -89,25 +89,58 @@ namespace TenisKata.Tests
         }
 
         [Test]
-        public void Joey_Adv()
+        public void FirstPlayer_Advantage()
+        {
+            GivenFirstPlayerScore(4);
+            GivenSecondPlayerScore(3);
+            ShouldBe("Joey Adv");
+        }
+
+        [Test]
+        public void SecondPlayer_advantage()
+        {
+            GivenFirstPlayerScore(3);
+            GivenSecondPlayerScore(4);
+            ShouldBe("Fish Adv");
+        }
+        [Test]
+        public void Fish_Adv()
+        {
+            GivenSecondPlayerScore(4);
+
+            GivenFirstPlayerScore(3);
+            ShouldBe("Fish Adv");
+        }
+
+        [Test]
+        public void SecondPlayerWin()
+        {
+            GivenSecondPlayerScore(5);
+
+            GivenFirstPlayerScore(3);
+            ShouldBe("Fish Win");
+        }
+
+        [Test]
+        public void FirstPlayerWin()
         {
             GivenSecondPlayerScore(3);
 
-            GivenFirstPlayerScore(4);
-            ShouldBe("Joey Adv");
+            GivenFirstPlayerScore(5);
+            ShouldBe("Joey Win");
         }
 
         private void GivenSecondPlayerScore(int times)
         {
             for (int i = 0; i < times; i++)
             {
-                tennisGame.SecondPlayerScoreTime();
+                _tennisGame.SecondPlayerScoreTime();
             }
         }
 
         private void ShouldBe(string expected)
         {
-            string score = tennisGame.Score();
+            string score = _tennisGame.Score();
             score.ShouldEqual(expected);
         }
     }
